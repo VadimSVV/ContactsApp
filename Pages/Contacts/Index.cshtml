@@ -40,7 +40,11 @@
                     Изменить
                     </a>
 
-                        <button class="btn btn-sm btn-danger delete-btn" data-id="@contact.Id">Удалить</button>
+                        <a asp-page-handler="Delete" asp-route-id="@contact.Id" 
+   class="btn btn-sm btn-danger" 
+   onclick="return confirm('Удалить @contact.Name?')">
+   Удалить
+</a>
                     </td>
                 </tr>
             }

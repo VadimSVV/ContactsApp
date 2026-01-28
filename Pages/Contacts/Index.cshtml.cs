@@ -27,6 +27,21 @@ namespace ContactsApp.Pages.Contacts
             Contacts = await _context.Contacts.ToListAsync();
         }
 
+// 🔥 DELETE (УДАЛЕНИЕ)
+public async Task<IActionResult> OnGetDeleteAsync(int id)
+{
+    Console.WriteLine($"🗑️ Delete GET: ID={id}");
+    var contact = await _context.Contacts.FindAsync(id);
+    if (contact != null)
+    {
+        _context.Contacts.Remove(contact);
+        await _context.SaveChangesAsync();
+        Console.WriteLine("✅ УДАЛЁН!");
+    }
+    Contacts = await _context.Contacts.ToListAsync();
+    return Page();
+}
+
 public async Task<IActionResult> OnPostCreateAsync()
 {
     Console.WriteLine(" POST Create вызван!");
@@ -42,7 +57,7 @@ public async Task<IActionResult> OnPostCreateAsync()
     _context.Contacts.Add(newContact);
     await _context.SaveChangesAsync();
     
-    Console.WriteLine($" ✅ ДОБАВЛЕН! БД: {new FileInfo("contacts.db").Length}б");
+    Console.WriteLine($" ДОБАВЛЕН! БД: {new FileInfo("contacts.db").Length}б");
     
     Contacts = await _context.Contacts.ToListAsync();
     ContactInput = new Contact();
@@ -50,12 +65,12 @@ public async Task<IActionResult> OnPostCreateAsync()
     return Page();
 }
 
-// 🔥 UPDATE (ИЗМЕНЕНИЕ КОНТАКТА)
+// UPDATE (ИЗМЕНЕНИЕ КОНТАКТА)
 public async Task<IActionResult> OnGetEditAsync(int id)
 {
     Console.WriteLine($"🔥 Edit GET: ID={id}");
     
-    // 1. ГРУЗИМ ВСЕ КОНТАКТЫ ПЕРВЫМ ДЕЛОМ!
+    // 1. ГРУЗИМ ВСЕ КОНТАКТЫ
     Contacts = await _context.Contacts.ToListAsync();
     
     // 2. НАХОДИМ РЕДАКТИРУЕМЫЙ
@@ -70,19 +85,19 @@ public async Task<IActionResult> OnGetEditAsync(int id)
 
 public async Task<IActionResult> OnPostUpdateAsync()
 {
-    Console.WriteLine("🔥 POST Update вызван!");
+    Console.WriteLine("POST Update вызван!");
     
     var contact = await _context.Contacts.FindAsync(ContactInput.Id);
     if (contact == null) return NotFound();
     
-    // 🔥 ОБНОВЛЯЕМ ПОЛЯ
+    // ОБНОВЛЯЕМ ПОЛЯ
     contact.Name = ContactInput.Name;
     contact.MobilePhone = ContactInput.MobilePhone;
     contact.JobTitle = ContactInput.JobTitle;
     contact.BirthDate = ContactInput.BirthDate;
     
     await _context.SaveChangesAsync();
-    Console.WriteLine("✅ КОНТАКТ ОБНОВЛЁН!");
+    Console.WriteLine("КОНТАКТ ОБНОВЛЁН!");
     
     Contacts = await _context.Contacts.ToListAsync();
     ContactInput = new Contact();
