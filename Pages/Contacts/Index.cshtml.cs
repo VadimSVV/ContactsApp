@@ -27,16 +27,16 @@ namespace ContactsApp.Pages.Contacts
             Contacts = await _context.Contacts.ToListAsync();
         }
 
-// 🔥 DELETE (УДАЛЕНИЕ)
+//  DELETE (УДАЛЕНИЕ)
 public async Task<IActionResult> OnGetDeleteAsync(int id)
 {
-    Console.WriteLine($"🗑️ Delete GET: ID={id}");
+    Console.WriteLine($" Delete GET: ID={id}");
     var contact = await _context.Contacts.FindAsync(id);
     if (contact != null)
     {
         _context.Contacts.Remove(contact);
         await _context.SaveChangesAsync();
-        Console.WriteLine("✅ УДАЛЁН!");
+        Console.WriteLine(" УДАЛЁН!");
     }
     Contacts = await _context.Contacts.ToListAsync();
     return Page();
@@ -68,16 +68,16 @@ public async Task<IActionResult> OnPostCreateAsync()
 // UPDATE (ИЗМЕНЕНИЕ КОНТАКТА)
 public async Task<IActionResult> OnGetEditAsync(int id)
 {
-    Console.WriteLine($"🔥 Edit GET: ID={id}");
+    Console.WriteLine($"Edit GET: ID={id}");
     
-    // 1. ГРУЗИМ ВСЕ КОНТАКТЫ
+    // ГРУЗИМ ВСЕ КОНТАКТЫ
     Contacts = await _context.Contacts.ToListAsync();
     
-    // 2. НАХОДИМ РЕДАКТИРУЕМЫЙ
+    // НАХОДИМ РЕДАКТИРУЕМЫЙ
     var contact = await _context.Contacts.FindAsync(id);
     if (contact == null) return NotFound();
     
-    // 3. ЗАПОЛНЯЕМ ФОРМУ
+    // ЗАПОЛНЯЕМ ФОРМУ
     ContactInput = contact;
     
     return Page();

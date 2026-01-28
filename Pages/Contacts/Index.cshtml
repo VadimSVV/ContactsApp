@@ -52,7 +52,7 @@
     </table>
 </div>
 
-<!-- Modal Add -->
+<!-- Модальное окно -->
 <div class="modal fade" id="addModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -112,7 +112,7 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script>
-        // Автооткрытие ТОЛЬКО при Edit (добавляем параметр)
+        // Автооткрытие при изменении (добавляем параметр)
         @if (Model.ContactInput != null && Model.ContactInput.Id > 0)
         {
             <text>
