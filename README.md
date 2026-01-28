@@ -40,15 +40,15 @@ Web-приложение ContactsApp на платформе ASP.NET Core (Backe
 
 Pages/Contacts/Index.cshtml.cs (PageModel)
 
-├── OnGetAsync() → READ (список контактов)
+OnGetAsync() → READ (список контактов)
 
-├── OnPostCreateAsync() → CREATE (добавить)
+OnPostCreateAsync() → CREATE (добавить)
 
-├── OnGetEditAsync() → UPDATE GET (загрузка формы)
+OnGetEditAsync() → UPDATE GET (загрузка формы)
 
-├── OnPostUpdateAsync() → UPDATE POST (сохранение)
+OnPostUpdateAsync() → UPDATE POST (сохранение)
 
-└── OnGetDeleteAsync() → DELETE (удаление)
+OnGetDeleteAsync() → DELETE (удаление)
 
 База данных
 
@@ -69,8 +69,6 @@ Table: Contacts (Id, Name, MobilePhone, JobTitle, BirthDate)
 🔹 Package Manager: NuGet
 
 🔹 Version Control: Git
-
-🔹 IDE: Visual Studio / VS Code
 
 Запуск проекта
 
