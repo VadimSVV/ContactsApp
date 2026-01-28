@@ -1,0 +1,89 @@
+@page
+@model ContactsApp.Pages.Contacts.IndexModel
+@{
+    ViewData["Title"] = "Контакты";
+}
+
+<h1>Контакты</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addModal">
+            Добавить контакт
+        </button>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Телефон</th>
+                <th>Должность</th>
+                <th>Дата рождения</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in Model.Contacts)
+            {
+                <tr>
+                    <td>@contact.Name</td>
+                    <td>@contact.MobilePhone</td>
+                    <td>@contact.JobTitle</td>
+                    <td>@contact.BirthDate.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning edit-btn" data-id="@contact.Id">Изменить</button>
+                        <button class="btn btn-sm btn-danger delete-btn" data-id="@contact.Id">Удалить</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal Add -->
+<div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Добавить контакт</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="post" asp-page-handler="Create">
+                <div class="modal-body">
+                    <input type="hidden" asp-for="ContactInput.Id" />
+                    <div class="mb-3">
+                        <label class="form-label">Имя</label>
+                        <input asp-for="ContactInput.Name" class="form-control" />
+                        <span asp-validation-for="ContactInput.Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Телефон</label>
+                        <input asp-for="ContactInput.MobilePhone" class="form-control" />
+                        <span asp-validation-for="ContactInput.MobilePhone" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Должность</label>
+                        <input asp-for="ContactInput.JobTitle" class="form-control" />
+                        <span asp-validation-for="ContactInput.JobTitle" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Дата рождения</label>
+                        <input asp-for="ContactInput.BirthDate" class="form-control" type="date" />
+                        <span asp-validation-for="ContactInput.BirthDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
