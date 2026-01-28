@@ -36,20 +36,6 @@ Web-приложение ContactsApp на платформе ASP.NET Core (Backe
 
 Серверная валидация (ASP.NET Core Model Validation)
 
-Архитектура приложения
-
-Pages/Contacts/Index.cshtml.cs (PageModel)
-
-READ (список контактов)
-
-CREATE (добавить)
-
-UPDATE GET (загрузка формы)
-
-UPDATE (сохранение)
-
-DELETE (удаление)
-
 База данных
 
 SQLite
