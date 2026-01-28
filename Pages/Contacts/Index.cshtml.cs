@@ -28,14 +28,25 @@ namespace ContactsApp.Pages.Contacts
 
         public async Task<IActionResult> OnPostCreateAsync()
         {
+            // ВРЕМЕННО! Проверяем что приходит из формы
+            Console.WriteLine($"📱 Имя: '{ContactInput.Name}'");
+            Console.WriteLine($"📱 Телефон: '{ContactInput.MobilePhone}'");
+            Console.WriteLine($"📱 Должность: '{ContactInput.JobTitle}'");
+            Console.WriteLine($"📱 Дата: {ContactInput.BirthDate}");
+            
+            Console.WriteLine("🔄 ModelState.IsValid = " + ModelState.IsValid);
+            // ВРЕМЕННО закомментировали валидацию
+            /*
             if (!ModelState.IsValid)
             {
                 Contacts = await _context.Contacts.ToListAsync();
                 return Page();
             }
-
+            */
             _context.Contacts.Add(ContactInput);
             await _context.SaveChangesAsync();
+
+            Console.WriteLine("Контакт Сохранен");
             return RedirectToPage();
         }
     }
