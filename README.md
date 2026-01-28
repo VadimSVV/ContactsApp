@@ -1,9 +1,11 @@
 ContactsApp — ASP.NET Core
 
 Описание проекта
+
 Web-приложение ContactsApp на платформе ASP.NET Core (Backend)
 
 Примечания:
+
 Система контроля версий Git
 
 Для работы с базами данных используется SQLite (Entity Framework Core)
@@ -21,37 +23,61 @@ Web-приложение ContactsApp на платформе ASP.NET Core (Backe
 Среда разработки .NET 10
 
 Реализованный функционал
+
 Полный CRUD (Create/Read/Update/Delete)
+
 Динамические модальные окна для создания/редактирования
+
 Автооткрытие форм редактирования (JavaScript)
+
 Подтверждение удаления (HTML confirm)
+
 Адаптивный дизайн (Bootstrap 5)
+
 Серверная валидация (ASP.NET Core Model Validation)
 
 Архитектура приложения
 
 Pages/Contacts/Index.cshtml.cs (PageModel)
+
 ├── OnGetAsync() → READ (список контактов)
+
 ├── OnPostCreateAsync() → CREATE (добавить)
+
 ├── OnGetEditAsync() → UPDATE GET (загрузка формы)
+
 ├── OnPostUpdateAsync() → UPDATE POST (сохранение)
+
 └── OnGetDeleteAsync() → DELETE (удаление)
+
 База данных
 
 SQLite: contacts.db (25+ записей)
+
 Table: Contacts (Id, Name, MobilePhone, JobTitle, BirthDate)
+
 Технологический стек
 
 🔹 Backend: ASP.NET Core Razor Pages (.NET 10)
+
 🔹 ORM: Entity Framework Core 10
+
 🔹 Database: SQLite
+
 🔹 Frontend: Bootstrap 5 + JavaScript
+
 🔹 Package Manager: NuGet
+
 🔹 Version Control: Git
+
 🔹 IDE: Visual Studio / VS Code
+
 Запуск проекта
 
 dotnet restore
+
 dotnet ef database update
+
 dotnet run
+
 Запуск: http://localhost:5281/Contacts
