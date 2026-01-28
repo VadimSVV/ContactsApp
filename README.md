@@ -30,7 +30,7 @@ Web-приложение ContactsApp на платформе ASP.NET Core (Backe
 
 Автооткрытие форм редактирования (JavaScript)
 
-Подтверждение удаления (HTML confirm)
+Подтверждение удаления (HTML)
 
 Адаптивный дизайн (Bootstrap 5)
 
@@ -40,15 +40,15 @@ Web-приложение ContactsApp на платформе ASP.NET Core (Backe
 
 Pages/Contacts/Index.cshtml.cs (PageModel)
 
-OnGetAsync() → READ (список контактов)
+READ (список контактов)
 
-OnPostCreateAsync() → CREATE (добавить)
+CREATE (добавить)
 
-OnGetEditAsync() → UPDATE GET (загрузка формы)
+UPDATE GET (загрузка формы)
 
-OnPostUpdateAsync() → UPDATE POST (сохранение)
+UPDATE (сохранение)
 
-OnGetDeleteAsync() → DELETE (удаление)
+DELETE (удаление)
 
 База данных
 
