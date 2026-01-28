@@ -52,9 +52,7 @@ OnGetDeleteAsync() → DELETE (удаление)
 
 База данных
 
-SQLite: contacts.db (25+ записей)
-
-Table: Contacts (Id, Name, MobilePhone, JobTitle, BirthDate)
+SQLite
 
 Технологический стек
 
