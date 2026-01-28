@@ -60,13 +60,13 @@ SQLite
 
 🔹 ORM: Entity Framework Core 10
 
-🔹 Database: SQLite
+🔹 База данных: SQLite
 
 🔹 Frontend: Bootstrap 5 + JavaScript
 
-🔹 Package Manager: NuGet
+🔹 Менеджер зависимостей: NuGet
 
-🔹 Version Control: Git
+🔹 Контроль версий: Git
 
 Запуск проекта
 
