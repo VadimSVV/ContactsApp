@@ -84,6 +84,18 @@
     </div>
 </div>
 
+<script>
+    document.querySelector('form[asp-page-handler="Create"]').addEventListener('submit', function() {
+        setTimeout(function() {
+            var modal = bootstrap.Modal.getInstance(document.getElementById('addModal'));
+            if (modal) modal.hide();
+            setTimeout(function() {
+                window.location.reload();
+            }, 1000);
+        }, 500);
+    });
+</script>
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
