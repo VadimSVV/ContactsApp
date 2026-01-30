@@ -12,7 +12,7 @@ Web-приложение ContactsApp на платформе ASP.NET Core (Backe
 
 Веб-сервер Kestrel (ASP.NET Core)
 
-В качестве архитектурного шаблона выбран Razor Pages (Page-based MVC)
+В качестве архитектурного шаблона выбран Razor Pages (MVC)
 
 Для объектно-реляционного отображения используется Entity Framework Core
 
