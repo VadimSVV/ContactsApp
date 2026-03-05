@@ -44,7 +44,7 @@ SQLite
 
 🔹 Backend: ASP.NET Core Razor Pages
 
-🔹 ORM: Entity Framework Core 10
+🔹 ORM: Entity Framework Core
 
 🔹 База данных: SQLite
 
