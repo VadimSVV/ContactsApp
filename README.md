@@ -1,4 +1,4 @@
-ContactsApp — ASP.NET Core
+ContactsApp - ASP.NET Core
 
 Описание проекта
 
